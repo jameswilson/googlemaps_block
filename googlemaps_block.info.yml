@@ -1,0 +1,8 @@
+name: Google Maps Block
+type: module
+description: Leverages Google Maps Javascript API to embed a map via Drupal Block API.
+package: Google
+core: 8.x
+dependencies:
+  - drupal:block
+  - drupal:node

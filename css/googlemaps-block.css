@@ -1,0 +1,63 @@
+/* Bring a consistent look and feel to the custom info window. */
+.gm-style .gm-iw--custom .gm-title {
+  /* Style the title more like the places card title */
+  font-weight: 500;
+  font-size: 14px;
+}
+.gm-style .gm-iw--custom .gm-basicinfo * {
+  /* Style the info window description text consistently. */
+  font-size: 13px;
+  font-family: Roboto, Arial, sans-serif;
+  letter-spacing: normal;
+  line-height: 1.35;
+}
+.gm-style .gm-iw--custom .gm-basicinfo p,
+.gm-style .gm-iw--custom .gm-basicinfo ul,
+.gm-style .gm-iw--custom .gm-basicinfo ol,
+.gm-style .gm-iw--custom .gm-basicinfo dl,
+.gm-style .gm-iw--custom .gm-basicinfo h1,
+.gm-style .gm-iw--custom .gm-basicinfo h2,
+.gm-style .gm-iw--custom .gm-basicinfo h3,
+.gm-style .gm-iw--custom .gm-basicinfo h4,
+.gm-style .gm-iw--custom .gm-basicinfo h5,
+.gm-style .gm-iw--custom .gm-basicinfo h6,
+.gm-style .gm-iw--custom .gm-basicinfo pre,
+.gm-style .gm-iw--custom .gm-basicinfo address,
+.gm-style .gm-iw--custom .gm-basicinfo fieldset,
+.gm-style .gm-iw--custom .gm-basicinfo table,
+.gm-style .gm-iw--custom .gm-basicinfo blockquote {
+  /* Consistent whitespace between block-level html elements. */
+  margin-top: 0;
+  margin-bottom: .6em;
+}
+.gm-style .gm-iw--custom .gm-basicinfo p:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo ul:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo ol:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo dl:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo h1:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo h2:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo h3:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo h4:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo h5:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo h6:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo pre:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo address:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo fieldset:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo table:last-child,
+.gm-style .gm-iw--custom .gm-basicinfo blockquote:last-child {
+  /* Kill the whitespace on the last element */
+  margin-bottom: 0;
+}
+.gm-style .gm-iw--custom .gm-basicinfo a {
+  /* Make links stand out a bit more than the regular text. */
+  font-weight: 400;
+}
+.gm-style .gm-iw--custom .gm-basicinfo b,
+.gm-style .gm-iw--custom .gm-basicinfo strong {
+  /* Consistent bold font weight */
+  font-weight: 400;
+}
+.gm-style .gm-iw--custom  .gm-basicinfo {
+  /* Overrides whitespace defaults provided by Google. */
+  padding-bottom: 0;
+}

@@ -1,0 +1,10 @@
+block.settings.googlemaps_block:
+  type: block_settings
+  label: 'Google Maps block'
+  mapping:
+    info_window_title:
+      type: text
+      label: 'Title'
+    info_window_description:
+      type: text_format
+      label: 'Body'

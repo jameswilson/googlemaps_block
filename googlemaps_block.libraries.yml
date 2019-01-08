@@ -1,0 +1,5 @@
+googlemaps_block:
+  version: 1.x
+  css:
+    theme:
+      css/googlemaps-block.css: {}

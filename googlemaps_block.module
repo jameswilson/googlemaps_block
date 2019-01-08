@@ -1,0 +1,34 @@
+<?php
+/**
+ * @file
+ * Module file for googlemaps_block.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function googlemaps_block_theme($existing, $type, $theme, $path) {
+  return [
+    'googlemaps_block' => [
+      'variables' => [
+        'api_key' => NULL,
+        'height' => NULL,
+        'zoom' => NULL,
+        'min_zoom' => NULL,
+        'max_zoom' => NULL,
+        'lat' => NULL,
+        'lng' => NULL,
+        'info_window_title' => NULL,
+        'info_window_description' => NULL,
+        'info_window_visible_on_load' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for googlemaps-block.html.twig
+ */
+function googlemaps_block_preprocess_googlemaps_block(&$variables) {
+  $variables['#attached']['library'][] = 'googlemaps_block/googlemaps_block';
+}

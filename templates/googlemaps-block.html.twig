@@ -1,0 +1,110 @@
+{% set html_id = 'googlemap-block'|clean_id %}
+{% set callback = 'init_' ~ html_id|replace('-','_') %}
+<div id="{{ html_id }}" class="googlemap-block__map" style="height:{{ height }};width:{{ width }}"></div>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&amp;callback={{ callback }}"></script>
+<script>function {{ callback }}() {
+  var coordinates = { lat: {{ lat }}, lng: {{ lng }} };
+
+  // Hardcode the custom map style for now
+  // https://snazzymaps.com/style/237761/blue
+  var blue = [
+    {
+      featureType: "administrative",
+      elementType: "labels.text.fill",
+      stylers: [{color: "#444444"}]
+    },
+    {
+      featureType: "landscape",
+      elementType: "all",
+      stylers: [{color: "#f2f2f2"}]
+    },
+    {
+      featureType: "poi",
+      elementType: "all",
+      stylers: [{visibility: "off"}]
+    },
+    {
+      featureType: "road",
+      elementType: "all",
+      stylers: [
+        {saturation: -100},
+        {lightness: 45}
+      ]
+    },
+    {
+      featureType: "road.highway",
+      elementType: "all",
+      stylers: [{visibility: "simplified"}]
+    },
+    {
+      featureType: "road.arterial",
+      elementType: "labels.icon",
+      stylers: [{visibility: "off"}]
+    },
+    {
+      featureType: "transit",
+      elementType: "all",
+      stylers: [{visibility: "off"}]
+    },
+    {
+      featureType: "water",
+      elementType: "all",
+      stylers: [
+        {color: "#46bcec"},
+        {visibility: "on"}
+      ]
+    }
+  ];
+  // The map config.
+  var map = new google.maps.Map(document.getElementById('{{ html_id }}'), {
+    zoom: {{ zoom }},
+    minZoom: {{ min_zoom }},
+    maxZoom: {{ max_zoom }},
+    center: coordinates,
+    zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.LEFT_TOP
+    },
+    mapTypeControl: false,
+    scaleControl: true,
+    streetViewControl: true,
+    streetViewControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_TOP
+    },
+    rotateControl: false,
+    fullscreenControl: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: blue
+  });
+
+  {% if info_window_description %}
+  var contentString = '<div class="gm-iw gm-iw--custom">' +
+  {% if info_window_title %}
+      '<div class="gm-title">{{ info_window_title }}</div>'+
+  {% endif %}
+      '<div class="gm-basicinfo">'+
+        '{{ info_window_description }}' +
+      '</div>'+
+    '</div>';
+  var infowindow = new google.maps.InfoWindow({
+    'content': contentString
+  });
+  {% endif %}
+
+  var marker = new google.maps.Marker({
+    'title': '{{ info_window_title }}',
+    'position': coordinates,
+    'map': map
+  });
+
+  {% if info_window_description %}
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+  {% if info_window_visible_on_load %}
+  infowindow.open(map, marker);
+  {% endif %}
+  {% endif %}
+
+}</script>
